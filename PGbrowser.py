@@ -1,0 +1,56 @@
+#1.0
+from selenium import webdriver
+import time
+import os
+#2.0
+#import requests
+#from lxml import html
+
+
+'''
+def scrapePG():
+    payload = {
+        'username': 's187581',
+        'password': '',
+        'execution': '2aac6f78-88b8-43a0-8a7b-4a205259db71_ZXlKaGJHY2lPaUpJVXpVeE1pSjkuNVZQUEoyUDBTcC9qVFNhaDNQT2FmOU5FM24vb3IyUFp2MURLaWp4MmpiMFBhb2l4MHFndm4xV0FrQkxDRHhzTTFiM0grMFQyQVVwcHA2Mkd2QTBkVE5rOUR4N3hrcXJ1RXh3Z25mRmQ2VmdNS3U5aTFWWHZkcEVLd0kvRkNnUTJINStHTVJtRGo1ZmxPMTFxMW1MUWJVejV0bEpUeHZ0NXBxcFpJRGlueksxRTc3VUN0WFhhL1F5TXhLTW0vc3RqT2F5WmgyVHBjQVlFNTdERU5NSnpzUTFRN0h1YjFWd0VLTm9jL2ZEUFlsbzJFZWcvbDk4UUovbVJkVi9LMVp5MjNBdnpqcHJ2VFRldXNpeDJZbWpWSklabmVLZE1qblRTYjB4b0t3NlZaU0VXVWRveXd5SUJUY3BIVWpDMldNeFNBS0ZJRjliOUEwUTFBZlM2ait0cmdGcGdaNmZpbVhwNEhQdllzT1MzR25vbUMrdWZIVUcramxuanZRckdtbXcrbVRSWXF3aWdJbDQ0WlR1bi9ncmlTeEkvZjVtSlk3QjdRZVlrTWdRckJqdElWaHNWYlBZMUJpYW9Lbll0V3JqSkdjUjNyeGhqVzdJdlBZU0RLaVZ5eHJiTFhXQm4rQWVXSkJVV3UvNWVwV0NNQXg5NS9FNElEU2RnNnNiRThWaVg2R3FGNnA2Ym5XODJDVThUQzd0Y1FGWGsvY1lvZlhiNkx2eEU1ZEdjTi9iSnhzdlFqcTZoOU5OMHBXQkZsb2UxOG1HeDlPeGlQblp6dmxIeVlaWWd2NjQ3ZEhOUEtYRTZpY0dQRmtDUEJtNUxQcW9LU3ZSbElHWGh4V2VySm9HOWMrbEtvUlZiMC9QVnQ2bHpTdDM3WUNEZXdMK0drS20veEF1dmZjOXEyNTNPT0Qxd1ZsVEtEMjZIYkNVUkV4Y0lySm85ckRiaEZWcmZjYkEzT1VaQjgvZTFEMi9pdlpGNUZiWkFzd05Bc2lnWjhBTzRKV2pCRGNpczFmb0tmZ3lyZ1dhVXVNdDhHNmZLdlVmVmpJYXhiSzdHYmFiUmR1K0NGYkVJM1ZpQVB5eHUrZXd3VXZWTXZ6Q3pITzdzQWIrTjVDWGZyalV2NkFWMUxoOW9vSlRiWDlJZzZvdkk2c1Q0eWJaeHVIaXlhS2RKSVk1a1RpZ3ZxUHZxRVlYaU5EU05pY0xOV0xFRWY1bndIWEhwZzE5RFlYZVppdnphTjZTTStYTlhaOEtMMCtiZXpuZVhQT3kvVGhNR05ieS9BS2h2dm5HMkdpR0FBdEZBVGVhamRxaWNaa251cnMxRTFRMjdNcS9KcVBtUG5hSkJ1WlNnRmlnN21NRjBadkhHc0p0YWNpVTNDQ2RPaVJOMUNGT2NRM2hZT3NvcEZIUGlCcEYwQ01abUlITmpxeXhvaWJjM0xsQS80ZHRKbklrZlVsRDAwRGZWU0s4N0lLMlZyZGtCMFd3N285VklNUElZeVRkWGJRRGgvK1ZjQldqQ2t6ejNrMnBKOWlCQ2dxcDVMQWZqMWkzaFF6RTJhVjRZbTZKbi96a1J3cTNUUmRDdVNXQnlwUkxYaVpvY3NDbndBQWx4NUlTaWQxT0dURkFFQ3hUNW1mRS84K1M4R1ZKQ0pYd1RLWVdna2hvRitwajZ2YjFja3pDTzZZY1hyVzlZQ1lnUnF4RzdKU0t0WGpYSVIxZkNyOFB1U0xsTW5HZFF5RDc0d0VpU1E5dnlPODk5eE5Qdlc4Z200Nm5ieTdUVnRtWWM5YTFhc3FFbTloNGx6SjU0U0t2N3B5aWt4Y1hPU3U3SjE2bmpDSnNVZEVId25sTzlVL3FaTmloTlNwdDBQZDRXaEZIZTJCd2sxa0plUGZlSTEwVXROYnVCd0xudmdySnJjOFVObHdObG1iNVpKeksvSWFtczh2eFk1eVBiTXQ5VWsrNUVXQnNhOURZcFpGTHl5b1htSi9UZ3luaEord2lIZ3hNL0ZpVDhQL2FFcEFoc3dENXJEOUx5K09VZHRORDh3NzFwWDVWdTNQZHFsdXB4OG5yaWEveUR3WlpiZHhNZ05laEFmTlgvR1hSV0oxQjFKNTAyb2VoWXQ3U1N6cnFaSUlQdUZpc1FJZXRZWmI5cTByR1k4WUk3N0c2V2dLcUh2MzNWU0pvWE1kbXRtMllsYk40UXdvcWVHNEdwRkJYSmdrY0prb0Mvbnl6ZzVUNytJWjA5TWF5MXZkdEtKUGRVaDgwUUlRYTBGNGVHL2tsRmYxR21VeFpjUm9QVjFYVS9BSjllcDJEbjhvaTR3WWVhS1J2ZFQ4RWJnNlQrK0dSeDlnMlhmYmRCNDMyM1QxdGNSTmZXTGxQYUhabisybFVtSUJhTlZ3R1kyMXZkTldrOWhhdG5ZT21JVGpJb25qSnRwdndEcnhVOStrd0J5TGZGbldKTWp0OGdOWDJ0SDF4UkFwUWNDSGNOYU1RTDVxRTV2Nmx4NzZubFgxU3RrUmtQSURNcjJ5YlovTDMwRU9qNHlTZnNhNGJiTkZITTNNekljMkRlbHA1Rkx6MDd2bjIvTU42eHlVOGg0UTBYYjhaRDBxOUZkeHM3ZHlzQm1vcUlURGlNNGtmbUJacHBDd1NQKzhjeU1HdmNSd3BGdlIvZ1hvaDQ4VHpxNHI1MzRiblRHSWhLTXpGdFlvaGdCYmNubnJnMk1DTGdjU0hFbEdXUGRuQy9WMmQyNVBPUUMwbFFDaHJQay84NERuWDVlUG0xQlVkUis0VUN1Q3ZJS09ibDY1Ni94ckNUbmlJMGE2ZlVzYVZGV09xdFE5Wlg3OE5wZG93VlU5NHB5TjV1V0ZEKzRWcUlaMmpqekk4eWhCeEtQOVpndUtkUFhpbFh2OXBIMFpWejhFVG1zemwyL21pWllnRm0xR0lYNjlaYTBpU1hrT1REQUFxREozdFdtMGFOczNtWHlKdlF4WGtJRkhhYjFqYVpSRTJWN3lyT25yTm5LVmNSZk80TnplM2Z4UXkvdTRyVkVzc0sxeFBqM2ltczh3VnNJdkZVbXYyRjdSbkc4VGlraTF5RWRkdFNCNk4wSGhjYWVPSWdraTg3SkRGS2txMmxYdXFIbEhFSUhMNnIwdElxZTFLSXN6M014MnkrbkdENzdDQThub1BycGJOS0hCQ01aVE9qZS9MTWNyQlNmVkZKRzNEN0Yra0txa0xObHBKckE2UDdNRkF2TmtKb1cwWDErNU05RWdpUVU2SUVDS3hwaDB2cjdCMzBjVllhSkdLNStRNWI0VkhKVUt0d2VnZlFsZVNwOXNOVkh0d2ViUDNMeVJHVm42NlJoYW15d3dubkNncnNwTlJERUVKR0xPQ0czZnBhQ2VhbTN5ZWovZE1QUEljNDRjNGpJMEFlcHlscEtURkwzZ2ZRREI0ajd5bzkzckU0VFBtU2VZMWhTQTRTT3NmZzFjeG1iaTF6c1Q2U2drbFlDMmlta2dCRThoZUxJNERMQWtzdWhQaGpPc1NiOHVQVWNxTTQ2eCtWa2tYVUdrZTE2NWd5dDhpR3QxNHk3M3orWk1EVjVLWDgzRlYvMU12c0hudW1RdU1JTTFSOUE5T1RDaW91RStlNWRjY1JRK1FvNHZSUTNKcEovWkhKOUxqUkNwaVZHcFBWdEZBSkFCdzJ2dVR5NFkza0JrVFJzcHVPVlRvTDIxeC9xQUcxZ2tHVll2dTV1UjRETnZkNDZ2T25QMlBaSGdsSDFJMTJpTkEwMCtlTDk5WjN3Y2JsVEVEMjBBc3dHTEwyVEc5WTZRWEp6aUF6NFpLZGtocnFYaDdxSE9Yb1Z2Q0pobUQzd1dKclJkZ0hzZU8rZjhqaURTalBBQ09wUFVCVmhxeHUxQ3NiNERYSlBrTEQ4QS83ZHdGTGpyMDBacGJKY3ppbm9DbFgyTzZlMVN3NDIyZU80U251MzRGRWlFcWUyL0x1L2RlMklYczA2WEZ1L1Jyc2p6RzUxZ0ROeGZrNkRZK1dqZlJsUGRFcE83aDNLYlNSNTdwZVM0U3V2MWVZejRnZzVuUVpGcThDd292VGNyTEt6ODczcEx3L2dLSDd0M1dESWF5eVVMb1lkNHVObW9kVEVlV0htRE5JWUNJV3J6RkQ4Qm5LVURZKzdBUGlPbDZ2b29XNklidFp2N1VjdEU0b28yZXYvcHdhaFdIVVBuZGp5cnUxc0NqaW43TVJGYk1KVVBCL3NiRThXN0hnTGIzbkZKekNnYVQyYVV6emUxMkF0ajU5K0pZUE9ORDdOeFB3Qm9qY0ZRd3JDNDM2ZEZ5cGczZ1p2bWovb2lqc1JlNUlwRWhCVTFoMXdFV3FlZlUrY1ZIank5SXFvdno2VTdJUlE4RWFGd0NlL0dMUVZXOUxtYnRoaDB6SjVIRVBIQ2ZtamZuaDUveE03TkZUVHJ4QXFnL1VKU0xFTStZTTBhbW5haThkVWlxbzFaNGZRR3hERUhFTlJDYldYUzVKNTFlUkhTOHpKVkd1ZUNUc2hXcUZKclJIRjU2SkhVWFIwaFU3UkpaWXI0ZEEraTRFV0hIZG1qaDJQUElGbDcxTUZCaytmdmhVQ2kybzZUQUVKVUtob3hYSGxDVlFNa2JFRVpaaHpDN1FManhlUExIWlRPRVU1Y01PdmpKUzIzb1RKMHJIZ0Rwa1dicGV2UjE4TDdCK3hSejVVMVlhdFY5VnBaaWVPejRSYWdJdDhkOXd6clhVb21DdEJ3eU0xaWV4NUVmZkxMeGU4ZkM4VVFZVW9mSFNMVGlSRUxKVVJVdzFYZkZmY2YwU3VRM2FmRXd2S05mV0ZBPT0ub0ViQmEzdHJlUnJlUkJPanJnRllmNjkzZGtwTjZRY3BUQ3JDV1Nxa2ZONUo0SjRQTkJ2MU9sSlRpZ2V5VVZjY1VCZzhRdC13b2Nacnc5V0gxX1VQRHc=',
+        '_eventId': 'submit',
+        'geolocation': '',
+        'submit': 'Zaloguj',
+    }
+
+    session_requests = requests.session()
+    login_url = 'https://logowanie.pg.edu.pl/login?service=https%3A%2F%2Fenauczanie.pg.edu.pl%2Fmoodle%2Flogin%2Findex.php%3FauthCAS%3DCAS'
+    result = session_requests.get(login_url)
+    result = session_requests.post(login_url, data = payload, headers = dict(referer = login_url))
+    print(result.status_code)
+    moodle_url = 'https://enauczanie.pg.edu.pl/moodle/course/view.php?id=6804'
+    result = session_requests.get(moodle_url)
+    print(result.text.count('Zadanie konkursowe'))
+    #doesnt log in 
+'''
+
+
+def checkPG(login, password, address, look_for):
+    options = webdriver.chrome.options.Options()
+    options.add_argument('--headless')
+    driver = webdriver.Chrome(chrome_options = options)
+    driver.get('https://logowanie.pg.edu.pl/login?service=https%3A%2F%2Fenauczanie.pg.edu.pl%2Fmoodle%2Flogin%2Findex.php%3FauthCAS%3DCAS')
+    driver.find_element_by_id('username').send_keys(login)
+    driver.find_element_by_id('password').send_keys(password)
+    driver.find_element_by_id('submit_button').click()
+    driver.find_element_by_name('submit').click()
+    time.sleep(1)
+    if driver.current_url == 'https://logowanie.pg.edu.pl/login?service=https%3A%2F%2Fenauczanie.pg.edu.pl%2Fmoodle%2Flogin%2Findex.php%3FauthCAS%3DCAS':
+        if driver.find_elements_by_xpath('//*[contains(text(), \'Dostarczone dane\')]'):
+            print('incorrect password')
+            return 'Failed to log: incorrect password'
+        return 'Failed to log: reason unknown'
+    driver.get(address)
+    found = 0
+    for lfo in look_for:
+        found += len(driver.find_elements_by_xpath('//*[contains(text(), \'{}\')]'.format(lfo)))
+    driver.close()
+    return found
+
+if __name__ == '__main__':
+    checkPG('test', 'test', 'https://enauczanie.pg.edu.pl/moodle/course/view.php?id=13588', 'zadanie')

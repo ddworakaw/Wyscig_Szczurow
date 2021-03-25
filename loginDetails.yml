@@ -1,0 +1,19 @@
+pg_user:
+  link: https://enauczanie.pg.edu.pl/moodle/course/view.php?id=13588
+  login: s123456
+  look_for: zadanie konkursowe;zadanie dodatkowe
+  password: !!binary |
+    Z0FBQUFBQmdYUjBIYk9yTkswN3IyaGZFR3RJUS1OZUxRZlFoTmlvLWt4Z2J0MF9sWXU2LXJNTDBa
+    TWRpT0lJdEtHTnU0MGQxZXpuVElPeXJDdlc5cVZWNERaME4yWWNFM0E9PQ==
+settings:
+  interval: 61.0
+  notification:
+    device_ID: ''
+    private_key: !!binary |
+      Z0FBQUFBQmdYUjBIOWtFWFFoWEJsdC14QWhrcnpMWHpNdWl6SUhsVlJyNndqLTc4LVM0cFpIa1FQ
+      MVdfbm0wbHI1MElJTk54NExyeHZ5LWpnVV9pT1hURThBeVAyTnJJeXc9PQ==
+    send_notification: false
+  number_of_exercises: 3
+  send_email: true
+  sound: true
+  where_to_send_email: ddworakaw@gmail.com
